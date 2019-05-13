@@ -38,5 +38,28 @@ new Cocktail('Margarita', 'https://www.wikihow.com/images/thumb/3/3f/Make-a-Haba
     return this.cocktails.value[index];
   }
 
+  addCocktail(cocktail: Cocktail): void {
+    const cocktails = this.cocktails.value.slice();
+    cocktails.push(new Cocktail(cocktail.name, cocktail.img, cocktail.desc, 
+
+    cocktail.ingredients
+      .filter(ingredient => {return ingredient.name && ingredient.quantity})
+      .map( ingredient => new Ingredient(ingredient.name, ingredient.quantity))));
+
+    this.cocktails.next(cocktails);
+  }
+
+  editCocktail(cocktail: Cocktail): void {
+    const cocktails = this.cocktails.value.slice();
+    const index = cocktails.map( c => c.name).indexOf(cocktail.name);
+    cocktails[index] = new Cocktail(cocktail.name, cocktail.img, cocktail.desc, 
+
+    cocktail.ingredients
+      .filter(ingredient => {return ingredient.name && ingredient.quantity})
+      .map( ingredient => new Ingredient(ingredient.name, ingredient.quantity)))
+    
+    this.cocktails.next(cocktails);
+  }
+
   constructor() { }
 }

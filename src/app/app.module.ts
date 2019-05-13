@@ -11,7 +11,8 @@ import { PanierComponent } from './panier/panier.component';
 import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
 import { AppRouting } from './app.routing';
 import { PanierService } from './shared/services/panier.service';
-import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cocktail-edit.component'
+import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cocktail-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cockta
   ],
   imports: [
     BrowserModule,
-    AppRouting
+    AppRouting,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
