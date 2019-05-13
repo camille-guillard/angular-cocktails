@@ -30,7 +30,7 @@ export class CocktailDetailsComponent implements OnInit {
   }
 
   addPanier(ingredients: Ingredient[]): void {
-    this.panierService.addIngredients(ingredients);
+    this.panierService.addIngredients(ingredients.slice());
   }
 
   getUrl(): string[] {
